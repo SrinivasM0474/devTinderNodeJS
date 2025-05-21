@@ -1,31 +1,31 @@
 const express = require("express");
-
+const { connectDB } = require("./config/database");
 const app = express();
+const User = require("./models/user");
 
-app.use("/", (err, req, res, next) => {
-  if (err) {
-    //Log your error
-    res.status(500).send("something went wr0ng");
-  }
-});
-
-app.get("/getUserData", (req, res) => {
+app.post("/signup", async (req, res) => {
+  //Creating new instance of the User Model / Creating a new user with this data
+  const user = new User({
+    firstName: "Sehwag",
+    lastName: "Veeru",
+    emailId: "Sehwag@gmail.com",
+    password: "Sehwag@123",
+  });
   try {
-    //Logic to get userdata from DB
-    throw new Error("error");
-    // res.send("User data sent");
+    await user.save();
+    res.send("User added successfully!");
   } catch (err) {
-    res.status(500).send("Error occured");
+    res.status(400).send("Error Saving User:" + err.message);
   }
 });
 
-app.use("/", (err, req, res, next) => {
-  if (err) {
-    //Log your error
-    res.status(500).send("something went wr0ng");
-  }
-});
-
-app.listen(4444, () => {
-  console.log("Server is successfully listening on port 4444");
-});
+connectDB()
+  .then(() => {
+    console.log("Database connection is success");
+    app.listen(4444, () => {
+      console.log("Server is successfully listening on port 4444");
+    });
+  })
+  .catch((err) => {
+    console.log("Database connection is failed");
+  });

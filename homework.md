@@ -1,0 +1,8 @@
+- Create a free cluster on MongoDB official website (Mongo Atlas)
+- Install mongoose library
+- Conect your application ti the DAtabse "Connection-url"/devTinder
+- Call the connectDB function and connect to databse before starting application on port(4444)
+- Create a userSchema & user Model
+- Create POST /signup API to add data to database
+- Push some documents using API calls from postman
+- Error Handling using try,catch

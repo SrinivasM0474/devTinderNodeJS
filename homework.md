@@ -10,3 +10,6 @@
 - Make your signup API dynamic to receive data from end user
 - API - Get user by email
 - API - Feed API - GET /feed - get all the users from the database
+- API -Get User by ID
+- Create a delete user API
+- Difference between patch and put

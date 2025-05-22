@@ -8,3 +8,5 @@
 - Error Handling using try, catch
 - Add the express.json middleware to app
 - Make your signup API dynamic to receive data from end user
+- API - Get user by email
+- API - Feed API - GET /feed - get all the users from the database

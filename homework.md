@@ -13,3 +13,13 @@
 - API -Get User by ID
 - Create a delete user API
 - Difference between patch and put
+- API - Update the user with email ID
+
+- Explore schematype options from documentaion
+- add required, unique, lowercase, min, minLength, trim
+- Add default
+- Create a custom validte function for gender
+- Improve the DB Schema - PUT all appropriate validations on each field in schema
+- Add timestamps to the userSchema
+- Add API level validations on patch request & signup post api
+- Add API validation for each field

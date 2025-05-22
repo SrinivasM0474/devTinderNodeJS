@@ -85,10 +85,11 @@ app.patch("/user", async (req, res) => {
   try {
     await User.findByIdAndUpdate({ _id: userId }, data, {
       returnDocument: "after",
+      runValidators: true,
     });
     res.send("Updated successfully");
   } catch (err) {
-    res.status(404).send("User not found");
+    res.status(404).send("Update failed" + err.message);
   }
 });
 

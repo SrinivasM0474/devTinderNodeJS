@@ -94,7 +94,7 @@ requestRouter.post(
       });
 
       if (!connectionRequest) {
-        return res.status(400).send({
+        return res.status(404).send({
           message: "Connection request not found with this id: " + requestId,
         });
       }

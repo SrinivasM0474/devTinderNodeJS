@@ -61,7 +61,7 @@
 - Send connection Request API
 - Proper validation of Data
 - Think about all corner cases
-- $or query $and query in mongoose
+- $or query $and query in mongoose - https://www.mongodb.com/docs/manual/reference/operator/query-logical/
 - schema.pre("save") function
 - Read more about about indexes in MongoDB
 - why do we need index in DB?
@@ -73,3 +73,4 @@
 - Thought process - POST vs GET
 - Read about ref and populate https://mongoosejs.com/docs/5.x/docs/populate.html
 - Create GET /user/requests/received with all the checks
+- Create GET /user/connections

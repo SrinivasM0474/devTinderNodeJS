@@ -13,20 +13,16 @@
 
 ### connectionRequestRouter
 
-- POST /request/send/interested/:userId
-- POST /request/send/ignored/:userId
+- POST /request/send/:status/:requestId
 
-- POST /request/send/:status/:userId //dynamic
-
-- POST /request/review/accepted/:requestId
-- POST /request/review/rejected/:requestId
+- POST /request/review/:status/:requestId
 
 ### userRouter
 
+- GET /user/requests/received
 - GET /user/connections
-- GET /user/requests
 - GET /user/feed - Gets youthe profiles of other users on the platform
 
 ##
 
-- Status: ignore, interested, accepted, rejected
+- Status: ignore, interested, accepted, rejecte

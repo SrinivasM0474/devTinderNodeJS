@@ -4,8 +4,8 @@ const authRouter = express.Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/user");
 
-//Signup user
-//Validation of data
+// Signup user
+// Validation of data
 // Encrypt the password
 authRouter.post("/signup", async (req, res) => {
   try {

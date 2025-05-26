@@ -4,6 +4,8 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
+require("dotenv").config(); // Load environment variables from .env file
+
 app.use(express.json()); //middleware
 app.use(cookieParser());
 app.use(
@@ -26,7 +28,7 @@ app.use("/", userRouter);
 connectDB()
   .then(() => {
     console.log("Database connection is success");
-    app.listen(4444, () => {
+    app.listen(process.env.PORT, () => {
       console.log("Server is successfully listening on port 4444");
     });
   })

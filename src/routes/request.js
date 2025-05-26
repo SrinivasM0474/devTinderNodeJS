@@ -6,6 +6,8 @@ const { userAuth } = require("../middlewares/auth");
 
 const ConnectionRequest = require("../models/connectionRequest");
 
+const sendEmail = require("../utils/sendEmail");
+
 requestRouter.post(
   "/request/send/:status/:toUserId",
   userAuth,
@@ -32,13 +34,6 @@ requestRouter.post(
         });
       }
 
-      //check if fromUserId and toUserId are same
-      // if (fromUserId.toString() === toUserId.toString()) {
-      //   return res.status(400).send({
-      //     message: "You cannot send connection request to yourself!!!",
-      //   });
-      // }
-
       //check if connection request already exists
       const existingConnectionRequest = await ConnectionRequest.findOne({
         $or: [
@@ -60,6 +55,13 @@ requestRouter.post(
       });
 
       const data = await connectionRequest.save();
+
+      const emailRes = await sendEmail.run(
+        "A new friend request from " + req.user.firstName,
+        req.user.firstName + " is " + status + " in " + toUser.firstName,
+      );
+      console.log("Email sent successfully:", emailRes);
+
       res.json({
         message:
           req.user.firstName + " is " + status + " in " + toUser.firstName,

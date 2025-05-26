@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 require("dotenv").config(); // Load environment variables from .env file
+require("./utils/cronjob"); // Import cron job utility
 
 app.use(express.json()); //middleware
 app.use(cookieParser());
